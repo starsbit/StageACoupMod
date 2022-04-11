@@ -1,11 +1,17 @@
 opinion_staged_a_coup_for_us = {
 	opinion = {
-		base = 1000
+		modifier = {
+			add = 1000
+		}
 	}
+	unique = yes
 }
 
 opinion_helped_staging_a_coup = {
 	opinion = {
-		base = 1000
+		modifier = {
+			add = 1000
+		}
 	}
+	unique = yes
 }

@@ -1,5 +1,16 @@
 @diff_stage_a_coup = 10
-stage_a_coup = {
+@energy_cost = 8000
+@alloy_cost = 3000
+@energy_cost_per_cycle = 60
+@alloy_cost_per_cycle = 30
+@spy_power_cost = 80
+# @diff_stage_a_coup = 0
+# @energy_cost = 0
+# @alloy_cost = 0
+# @energy_cost_per_cycle = 0
+# @alloy_cost_per_cycle = 0
+# @spy_power_cost = 0
+mmstage_a_coup = {
 	target = none
 	categories = {
 		op_cat_provocation
@@ -11,15 +22,15 @@ stage_a_coup = {
 	resources = {
 		category = operations
 		cost = {
-			energy = 8000
-			alloys = 3000
+			energy = @energy_cost
+			alloys = @alloy_cost
 		}
 		upkeep = {
-			energy = 60
-			alloys = 30
+			energy = @energy_cost_per_cycle
+			alloys = @alloy_cost_per_cycle
 		}
 	}
-	spy_power_cost = 80
+	spy_power_cost = @spy_power_cost
 	potential = {
 		target = {
 			NOT = {

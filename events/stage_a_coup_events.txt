@@ -14,7 +14,6 @@ planet_event = {
 	}
 	immediate = {
 		owner = {
-			save_event_target_as = organic_empire
 			set_country_flag = had_rebellion
 			save_event_target_as = current_rebellion_originator			#the old script accidentally saved the owner as two event targets, keeping it that way for safety, sorry!
 		}
