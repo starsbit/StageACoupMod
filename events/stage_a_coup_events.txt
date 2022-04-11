@@ -1,0 +1,615 @@
+namespace = stage_a_coup
+planet_event = {
+	#uprising
+	id = stage_a_coup.001
+	title = stage_a_coup.001.name
+	desc = stage_a_coup.001.desc
+	picture = GFX_evt_exploding_ship
+	show_sound = event_super_explosion
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+	}
+	trigger = {
+	}
+	immediate = {
+		owner = {
+			save_event_target_as = organic_empire
+			set_country_flag = had_rebellion
+			save_event_target_as = current_rebellion_originator			#the old script accidentally saved the owner as two event targets, keeping it that way for safety, sorry!
+		}
+		set_planet_flag = machup_capital@root.owner
+		# event lock all fleets to prevent exploits
+		owner = {
+			every_owned_fleet = {
+				set_event_locked = yes
+			}
+		}
+		# find and flag planets
+		owner = {
+			effect_on_blob = {
+				center = root.solar_system
+				owned_planets_percentage = 0.5
+				planet_limit = {
+					OR = {
+						controller = {
+							is_same_value = root.owner
+						}
+						solar_system = {
+							exists = starbase
+							starbase = {
+								owner = {
+									is_same_value = root.owner
+								}
+							}
+						}
+					}
+					solar_system = {
+						NOT = {
+							any_system_planet = {
+								is_same_value = root.owner.capital_scope
+							}
+						}
+					}
+					is_under_colonization = no
+				}
+				effect = {
+					set_star_flag = machup_system_flip
+				}
+			}
+		}
+		# create machine country
+		owner = {
+			if = {
+				limit = {
+					event_target:current_rebellion = {
+						OR = {
+							is_gestalt = yes
+							has_authority = auth_corporate
+						}
+					}
+				}
+				create_country = {
+					type = default
+					species = event_target:current_rebellion_originator.species
+					ignore_initial_colony_error = yes
+					day_zero_contact = no
+					civics = random
+					ethos = {
+						ethic = random
+					}
+					authority = random
+					flag = random
+					origin = origin_separatists
+					name = random
+					effect = {
+						save_event_target_as = current_rebellion
+						country_event = {
+							id = stage_a_coup.002
+						}
+						# setup happens here now
+					}
+				}
+			}
+			else = {
+				create_country = {
+					type = default
+					species = event_target:current_rebellion_originator.species
+					ignore_initial_colony_error = yes
+					day_zero_contact = no
+					civics = random
+					flag = random
+					origin = origin_separatists
+					name = random
+					effect = {
+						save_event_target_as = current_rebellion
+						country_event = {
+							id = stage_a_coup.002
+						}
+						# setup happens here now
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = stage_a_coup.201.a
+		custom_tooltip = stage_a_coup.201.a.tooltip
+	}
+	option = {
+		name = stage_a_coup.201.b
+		trigger = {
+			event_target:current_rebellion_originator = {
+				is_ai = no
+			}
+		}
+		custom_tooltip = stage_a_coup.201.b.tooltip
+		hidden_effect = {
+			if = {
+				limit = {
+					event_target:current_rebellion_originator = {
+						num_owned_planets > 0
+					}
+				}
+				event_target:current_rebellion = {
+					set_player = event_target:current_rebellion_originator
+				}
+			}
+		}
+	}
+	after = {
+		hidden_effect = {
+			event_target:current_rebellion_originator = {
+				every_owned_fleet = {
+					set_event_locked = no
+				}
+			}
+			if = {
+				limit = {
+					event_target:rebellion_host = {
+						is_gestalt = no
+						NOT = {
+							has_authority = auth_corporate
+						}
+					}
+				}
+				event_target:current_rebellion = {
+					copy_ethos_and_authority = event_target:rebellion_host
+					set_name = random
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = stage_a_coup.002
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+	}
+	immediate = {
+		# saving uprising and host as event targets
+		save_event_target_as = current_rebellion
+		from.owner = {
+			save_event_target_as = current_rebellion_originator
+		}
+		# setting flags
+		set_country_flag = machine_uprising_country@from.owner
+		set_country_flag = machine_uprising_country
+		set_relation_flag = {
+			who = event_target:current_rebellion_originator
+			flag = uprising_to_host_flag
+		}
+		from.owner = {
+			set_country_flag = machine_uprising_originator@root
+			set_country_flag = machine_uprising_originator
+			set_relation_flag = {
+				who = root
+				flag = host_to_uprising_flag
+			}
+		}
+		# setting graphical culture
+		set_graphical_culture = event_target:current_rebellion_originator
+		# establish comms
+		every_country = {
+			limit = {
+				OR = {
+					has_communications = event_target:current_rebellion_originator
+					intel_level = {
+						level > low
+						system = event_target:current_rebellion_originator.capital_scope.solar_system
+					}
+					any_system = {
+						has_star_flag = machup_system_flip
+						prev = {
+							intel_level = {
+								level > low
+								system = prev
+							}
+						}
+					}
+				}
+			}
+			establish_communications_no_message = root
+			establish_contact = {
+				who = root
+				location = from
+			}
+		}
+		# baseline resource stockpile
+		add_resource = {
+			energy = 10000
+			minerals = 10000
+			influence = 500
+			alloys = 10000
+		}
+		add_100_unity_per_year_passed = yes		# scripted effect
+		# Machine Uprising opinion modifier
+		add_opinion_modifier = {
+			who = event_target:current_rebellion_originator
+			modifier = opinion_machine_uprising_originator
+		}
+		add_opinion_modifier = {
+			who = event_target:rebellion_host
+			modifier = opinion_helped_staging_a_coup
+		}
+		event_target:current_rebellion_originator = {
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_machine_uprising
+			}
+		}
+		event_target:rebellion_host = {
+			add_opinion_modifier = {
+				who = root
+				modifier = opinion_staged_a_coup_for_us
+			}
+		}
+		# clear new contact opinion modifier
+		if = {
+			limit = {
+				has_opinion_modifier = {
+					who = event_target:current_rebellion_originator
+					modifier = opinion_new_contact
+				}
+			}
+			remove_opinion_modifier = {
+				who = event_target:current_rebellion_originator
+				modifier = opinion_new_contact
+			}
+		}
+		# flip capital planet and add at least 10 Machine pops
+		from = {
+			# flip military stations
+			solar_system = {
+				every_fleet_in_system = {
+					limit = {
+						exists = owner
+						owner = {
+							is_same_value = event_target:current_rebellion_originator
+						}
+						any_owned_ship = {
+							is_ship_class = shipclass_military_station
+						}
+					}
+					set_owner = root
+				}
+			}
+			set_owner = root
+			set_controller = root
+			set_capital = yes
+			solar_system = {
+				if = {
+					limit = {
+						exists = starbase
+					}
+					starbase = {
+						set_owner = root
+					}
+				}
+				else = {
+					create_starbase = {
+						size = starbase_starport
+						module = shipyard
+						owner = root
+					}
+				}
+			}
+			while = {
+				#limit = { free_housing > 0 }
+				count = 10
+				create_pop = {
+					species = root
+				}
+			}
+			if = {
+				limit = {
+					count_owned_pop = {
+						count < 5
+						limit = {
+							is_exact_same_species = root
+						}
+					}
+				}
+				while = {
+					limit = {
+						count_owned_pop = {
+							count < 5
+							limit = {
+								is_exact_same_species = root
+							}
+						}
+					}
+					random_owned_pop = {
+						limit = {
+							NOT = {
+								is_exact_same_species = root
+							}
+						}
+						kill_pop = yes
+						prev = {
+							create_pop = {
+								species = root
+							}
+						}
+					}
+				}
+			}
+			while = {
+				count = 6
+				create_army = {
+					owner = root
+					type = assault_army
+				}
+			}
+			# flip remaining flagged planets
+			while = {
+				count = 100
+				limit = {
+					any_system = {
+						has_star_flag = machup_system_flip
+						exists = starbase
+						starbase = {
+							owner = {
+								is_same_value = event_target:current_rebellion_originator
+							}
+						}
+					}
+				}
+				random_system = {
+					limit = {
+						has_star_flag = machup_system_flip
+						exists = starbase
+						starbase = {
+							owner = {
+								is_same_value = event_target:current_rebellion_originator
+							}
+						}
+					}
+					starbase = {
+						set_owner = root
+					}
+				}
+			}
+			event_target:current_rebellion_originator = {
+				every_owned_planet = {
+					limit = {
+						solar_system = {
+							#has_star_flag = machup_system_flip@event_target:current_rebellion_originator
+							has_star_flag = machup_system_flip
+						}
+					}
+					# flip military stations
+					solar_system = {
+						every_fleet_in_system = {
+							limit = {
+								exists = owner
+								owner = {
+									is_same_value = event_target:current_rebellion_originator
+								}
+								any_owned_ship = {
+									is_ship_class = shipclass_military_station
+								}
+							}
+							set_owner = root
+						}
+					}
+					set_planet_flag = been_flipped
+					set_owner = root
+					set_controller = root
+					export_trigger_value_to_variable = {
+						trigger = free_housing
+						variable = housing_var
+					}
+					if = {
+						limit = {
+							OR = {
+								check_variable = {
+									which = housing_var
+									value < 2
+								}
+								check_variable = {
+									which = housing_var
+									value > 25
+								}
+							}
+						}
+						set_variable = {
+							which = housing_var
+							value = 15
+						}
+					}
+					while = {
+						count = housing_var
+						create_pop = {
+							species = root
+						}
+					}
+					clear_variable = housing_var
+					if = {
+						limit = {
+							count_owned_pop = {
+								count < 5
+								limit = {
+									is_exact_same_species = root
+								}
+							}
+						}
+						while = {
+							limit = {
+								count_owned_pop = {
+									count < 5
+									limit = {
+										is_exact_same_species = root
+									}
+								}
+							}
+							count = 5
+							random_owned_pop = {
+								limit = {
+									NOT = {
+										is_exact_same_species = root
+									}
+								}
+								kill_pop = yes
+								prev = {
+									create_pop = {
+										species = root
+									}
+								}
+							}
+						}
+					}
+					while = {
+						count = 6
+						create_army = {
+							owner = root
+							type = assault_army
+						}
+					}
+					if = {
+						limit = {
+							is_under_colonization = yes
+						}
+						destroy_colony = yes
+					}
+				}
+			}
+			every_system = {
+				limit = {
+					has_star_flag = machup_system_flip
+				}
+				remove_star_flag = machup_system_flip
+			}
+		}
+		# get host's technologies
+		copy_techs_from = {
+			target = event_target:current_rebellion_originator
+		}
+		# survey host's surveyed planets
+		every_galaxy_planet = {
+			limit = {
+				is_surveyed = {
+					who = event_target:current_rebellion_originator
+					status = yes
+				}
+			}
+			set_surveyed = {
+				surveyed = yes
+				surveyor = root
+			}
+		}
+		# declare war on host
+		declare_war = {
+			target = event_target:current_rebellion_originator
+			name = "[This.MainDefender.GetAdj] Civil War"
+			# "[This.MainDefender.GetAdj] Machine Uprising"
+			attacker_war_goal = wg_stage_a_coup
+		}
+		# create fleets
+		create_fleet_from_naval_cap = 0.2
+		random_owned_planet = {
+			last_created_fleet = {
+				set_location = prev
+			}
+		}
+		create_fleet_from_naval_cap = 0.3
+		random_owned_planet = {
+			last_created_fleet = {
+				set_location = prev
+			}
+		}
+		# add modifier for AI, including 10x naval cap
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			add_modifier = {
+				modifier = uprising_ai_buff
+				days = 1800
+			}
+		}
+		# add modifier for player, 10x naval cap
+		else = {
+			add_modifier = {
+				modifier = uprising_player_buff
+				days = 1800
+			}
+		}
+		#science
+		create_fleet = {
+			effect = {
+				set_owner = root
+				create_ship = {
+					name = random
+					random_existing_design = science
+				}
+				set_fleet_stance = evasive
+				set_location = root.capital_scope
+				owner = {
+					create_leader = {
+						class = scientist
+						sub_type = survey
+						name = random
+						species = owner_main_species
+					}
+				}
+				set_leader = last_created_leader
+			}
+		}
+		#constructor
+		create_fleet = {
+			effect = {
+				set_owner = root
+				create_ship = {
+					name = random
+					random_existing_design = constructor
+				}
+				set_fleet_stance = evasive
+				set_location = root.capital_scope
+			}
+		}
+		every_owned_fleet = {
+			#limit = { event_locked = yes }
+			set_event_locked = no
+		}
+		every_playable_country = {
+			limit = {
+				has_communications = event_target:current_rebellion_originator
+				NOR = {
+					is_same_value = root
+					is_same_value = event_target:current_rebellion_originator
+				}
+			}
+			country_event = {
+				id = stage_a_coup.300
+				days = 5
+			}
+		}
+		observer_event = {
+			id = observer.81
+		}
+	}
+}
+
+country_event = {
+	id = stage_a_coup.300
+	title = stage_a_coup.300.name
+	desc = stage_a_coup.300.desc
+	picture = GFX_evt_exploding_ship
+	location = fromfrom
+	is_triggered_only = yes
+	show_sound = event_planetary_riot
+	trigger = {
+		exists = event_target:current_rebellion_originator
+		exists = event_target:current_rebellion
+		NOR = {
+			is_same_value = event_target:current_rebellion_originator
+			is_same_value = event_target:current_rebellion
+		}
+	}
+	option = {
+		name = stage_a_coup.300.a
+	}
+}

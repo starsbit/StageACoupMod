@@ -1,0 +1,23 @@
+namespace = assassination
+planet_event = {
+	id = assassination.001
+	title = assassination.001.name
+	desc = assassination.001.desc
+	picture = GFX_evt_arguing_senate
+	show_sound = event_yellow_alert
+	is_triggered_only = yes
+	pre_triggers = {
+		has_owner = yes
+	}
+	trigger = {
+	}
+	immediate = {
+		owner = {
+			ruler = {
+				kill_leader = {
+					fire = yes
+				}
+			}
+		}
+	}
+}

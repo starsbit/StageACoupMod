@@ -1,0 +1,72 @@
+@diff_assassination = 6
+assassination = {
+	target = none
+	categories = {
+		op_cat_provocation
+		op_cat_military
+	}
+	picture = GFX_evt_spymaster
+	desc = assassination_operation
+	stages = 5
+	resources = {
+		category = operations
+		cost = {
+			energy = 10000
+		}
+		upkeep = {
+			energy = 50
+		}
+	}
+	spy_power_cost = 60
+	potential = {
+	}
+	allow = {
+		custom_tooltip = {
+			is_running_espionage_operation = no
+			fail_text = operation_one_at_a_time
+		}
+	}
+	stage = {
+		#1
+		difficulty = @diff_assassination
+		icon = GFX_espionage_chapter_icon_document
+		event = assassination_operation.100
+	}
+	stage = {
+		#2
+		difficulty = @diff_assassination
+		icon = GFX_espionage_chapter_icon_document
+		event = assassination_operation.101
+	}
+	stage = {
+		#3
+		difficulty = @diff_assassination
+		icon = GFX_espionage_chapter_icon_document
+		event = assassination_operation.102
+	}
+	stage = {
+		#4
+		difficulty = @diff_assassination
+		icon = GFX_espionage_chapter_icon_document
+		event = assassination_operation.103
+	}
+	stage = {
+		#5
+		difficulty = @diff_assassination
+		icon = GFX_espionage_chapter_icon_document
+		event = assassination_operation.104
+	}
+	on_roll_failed = {
+		standard_espionage_operation_on_roll_failed = {
+			RANDOM_EVENTS = operation_random_events_generic
+		}
+	}
+	on_create = {
+		target = {
+			set_timed_country_flag = {
+				flag = espionage_operation_targeted_by@root.owner
+				days = 1
+			}
+		}
+	}
+}

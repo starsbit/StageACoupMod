@@ -1,0 +1,206 @@
+namespace = assassination_operation
+#first event
+espionage_operation_event = {
+	id = assassination_operation.100
+	title = assassination_operation.100.name
+	desc = assassination_operation.100.desc
+	espionage_operation = yes
+	picture = GFX_evt_space_station
+	show_sound = event_default
+	is_triggered_only = yes
+	immediate = {
+		set_espionage_operation_progress_locked = yes
+	}
+	option = {
+		#continue
+		name = ACKNOWLEDGED
+		set_espionage_operation_progress_locked = no
+	}
+}
+
+# Second Event
+espionage_operation_event = {
+	id = assassination_operation.101
+	title = assassination_operation.101.name
+	espionage_operation = yes
+	desc = assassination_operation.101.desc
+	picture = GFX_evt_space_station
+	show_sound = event_default
+	is_triggered_only = yes
+	immediate = {
+		set_espionage_operation_progress_locked = yes
+	}
+	option = {
+		#continue
+		name = ACKNOWLEDGED
+		set_espionage_operation_progress_locked = no
+	}
+}
+
+# Third Event
+espionage_operation_event = {
+	id = assassination_operation.102
+	title = assassination_operation.102.name
+	espionage_operation = yes
+	desc = assassination_operation.102.desc
+	picture = GFX_evt_space_station
+	show_sound = event_default
+	is_triggered_only = yes
+	immediate = {
+		set_espionage_operation_progress_locked = yes
+	}
+	option = {
+		#continue
+		name = ACKNOWLEDGED
+		set_espionage_operation_progress_locked = no
+	}
+}
+
+# Third Event
+espionage_operation_event = {
+	id = assassination_operation.102
+	title = assassination_operation.102.name
+	espionage_operation = yes
+	desc = assassination_operation.102.desc
+	picture = GFX_evt_space_station
+	show_sound = event_default
+	is_triggered_only = yes
+	immediate = {
+		set_espionage_operation_progress_locked = yes
+	}
+	option = {
+		#continue
+		name = ACKNOWLEDGED
+		set_espionage_operation_progress_locked = no
+	}
+}
+
+# fourth Event
+espionage_operation_event = {
+	id = assassination_operation.103
+	title = assassination_operation.103.name
+	espionage_operation = yes
+	desc = assassination_operation.103.desc
+	picture = GFX_evt_space_station
+	show_sound = event_default
+	is_triggered_only = yes
+	immediate = {
+		set_espionage_operation_progress_locked = yes
+	}
+	option = {
+		#continue
+		name = ACKNOWLEDGED
+		set_espionage_operation_progress_locked = no
+	}
+}
+
+#fifth Event 		Last
+espionage_operation_event = {
+	id = assassination_operation.104
+	title = assassination_operation.104.name
+	espionage_operation = yes
+	desc = assassination_operation.104.desc
+	picture = GFX_evt_space_station
+	show_sound = event_default
+	is_triggered_only = yes
+	immediate = {
+		set_espionage_operation_progress_locked = yes
+	}
+	option = {
+		name = ACKNOWLEDGED
+		trigger = {
+			NOT = {
+				has_espionage_operation_flag = operation_failed
+			}
+		}
+		owner = {
+			country_event = {
+				id = assassination_operation.106
+			}
+		}
+		fromfrom = {
+			country_event = {
+				id = assassination_operation.200
+			}
+		}
+	}
+}
+
+#Rebelion invalid
+country_event = {
+	id = assassination_operation.105
+	title = assassination_operation.105.name
+	desc = assassination_operation.105.desc
+	picture = GFX_evt_space_station
+	show_sound = event_default
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = ACKNOWLEDGED
+		destroy_espionage_operation = from
+	}
+}
+
+#confirmation for owner
+country_event = {
+	id = assassination_operation.106
+	title = assassination_operation.106.name
+	desc = assassination_operation.106.desc
+	picture = GFX_evt_space_station
+	show_sound = event_default
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = ACKNOWLEDGED
+	}
+}
+
+#inf for target (cut out)
+country_event = {
+	id = assassination_operation.107
+	#title = assassination_operation.107.name
+	#desc = assassination_operation.107.desc
+	hide_window = yes
+	#picture = GFX_evt_space_station
+	#show_sound = event_default
+	is_triggered_only = yes
+	immediate = {
+		root = {
+			country_event = {
+				id = assassination_operation.200
+			}
+		}
+	}
+}
+
+country_event = {
+	id = assassination_operation.200
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+	}
+	immediate = {
+		random_owned_planet = {
+			planet_event = {
+				id = assassination.001
+			}
+		}
+	}
+}
+
+#TEST event
+country_event = {
+	id = assassination_operation.00
+	title = assassination_operation.00.name
+	desc = assassination_operation.00.desc
+	picture = GFX_evt_space_station
+	show_sound = event_default
+	is_triggered_only = yes
+	immediate = {
+	}
+	option = {
+		name = ACKNOWLEDGED
+	}
+}

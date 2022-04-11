@@ -1,0 +1,11 @@
+opinion_staged_a_coup_for_us = {
+	opinion = {
+		base = 1000
+	}
+}
+
+opinion_helped_staging_a_coup = {
+	opinion = {
+		base = 1000
+	}
+}
