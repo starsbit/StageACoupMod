@@ -61,7 +61,7 @@ planet_event = {
 		owner = {
 			if = {
 				limit = {
-					event_target:current_rebellion = {
+					event_target:current_rebellion_originator = {
 						OR = {
 							is_gestalt = yes
 							has_authority = auth_corporate
@@ -222,9 +222,10 @@ country_event = {
 			minerals = 10000
 			influence = 500
 			alloys = 10000
+			food = 10000
 		}
 		add_100_unity_per_year_passed = yes		# scripted effect
-		# Machine Uprising opinion modifier
+		# Rebellion opinion modifier
 		add_opinion_modifier = {
 			who = event_target:current_rebellion_originator
 			modifier = opinion_machine_uprising_originator

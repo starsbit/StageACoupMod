@@ -1,9 +1,9 @@
-namespace = assassination_operation
+namespace = assassination_coup_operation
 #first event
 espionage_operation_event = {
-	id = assassination_operation.100
-	title = assassination_operation.100.name
-	desc = assassination_operation.100.desc
+	id = assassination_coup_operation.100
+	title = assassination_coup_operation.100.name
+	desc = assassination_coup_operation.100.desc
 	espionage_operation = yes
 	picture = GFX_evt_space_station
 	show_sound = event_default
@@ -20,10 +20,10 @@ espionage_operation_event = {
 
 # Second Event
 espionage_operation_event = {
-	id = assassination_operation.101
-	title = assassination_operation.101.name
+	id = assassination_coup_operation.101
+	title = assassination_coup_operation.101.name
 	espionage_operation = yes
-	desc = assassination_operation.101.desc
+	desc = assassination_coup_operation.101.desc
 	picture = GFX_evt_space_station
 	show_sound = event_default
 	is_triggered_only = yes
@@ -39,10 +39,10 @@ espionage_operation_event = {
 
 # Third Event
 espionage_operation_event = {
-	id = assassination_operation.102
-	title = assassination_operation.102.name
+	id = assassination_coup_operation.102
+	title = assassination_coup_operation.102.name
 	espionage_operation = yes
-	desc = assassination_operation.102.desc
+	desc = assassination_coup_operation.102.desc
 	picture = GFX_evt_space_station
 	show_sound = event_default
 	is_triggered_only = yes
@@ -58,10 +58,10 @@ espionage_operation_event = {
 
 # Third Event
 espionage_operation_event = {
-	id = assassination_operation.102
-	title = assassination_operation.102.name
+	id = assassination_coup_operation.102
+	title = assassination_coup_operation.102.name
 	espionage_operation = yes
-	desc = assassination_operation.102.desc
+	desc = assassination_coup_operation.102.desc
 	picture = GFX_evt_space_station
 	show_sound = event_default
 	is_triggered_only = yes
@@ -77,10 +77,10 @@ espionage_operation_event = {
 
 # fourth Event
 espionage_operation_event = {
-	id = assassination_operation.103
-	title = assassination_operation.103.name
+	id = assassination_coup_operation.103
+	title = assassination_coup_operation.103.name
 	espionage_operation = yes
-	desc = assassination_operation.103.desc
+	desc = assassination_coup_operation.103.desc
 	picture = GFX_evt_space_station
 	show_sound = event_default
 	is_triggered_only = yes
@@ -96,10 +96,10 @@ espionage_operation_event = {
 
 #fifth Event 		Last
 espionage_operation_event = {
-	id = assassination_operation.104
-	title = assassination_operation.104.name
+	id = assassination_coup_operation.104
+	title = assassination_coup_operation.104.name
 	espionage_operation = yes
-	desc = assassination_operation.104.desc
+	desc = assassination_coup_operation.104.desc
 	picture = GFX_evt_space_station
 	show_sound = event_default
 	is_triggered_only = yes
@@ -115,12 +115,12 @@ espionage_operation_event = {
 		}
 		owner = {
 			country_event = {
-				id = assassination_operation.106
+				id = assassination_coup_operation.106
 			}
 		}
 		fromfrom = {
 			country_event = {
-				id = assassination_operation.200
+				id = assassination_coup_operation.200
 			}
 		}
 	}
@@ -128,9 +128,9 @@ espionage_operation_event = {
 
 #Rebelion invalid
 country_event = {
-	id = assassination_operation.105
-	title = assassination_operation.105.name
-	desc = assassination_operation.105.desc
+	id = assassination_coup_operation.105
+	title = assassination_coup_operation.105.name
+	desc = assassination_coup_operation.105.desc
 	picture = GFX_evt_space_station
 	show_sound = event_default
 	is_triggered_only = yes
@@ -144,9 +144,9 @@ country_event = {
 
 #confirmation for owner
 country_event = {
-	id = assassination_operation.106
-	title = assassination_operation.106.name
-	desc = assassination_operation.106.desc
+	id = assassination_coup_operation.106
+	title = assassination_coup_operation.106.name
+	desc = assassination_coup_operation.106.desc
 	picture = GFX_evt_space_station
 	show_sound = event_default
 	is_triggered_only = yes
@@ -159,9 +159,9 @@ country_event = {
 
 #inf for target (cut out)
 country_event = {
-	id = assassination_operation.107
-	#title = assassination_operation.107.name
-	#desc = assassination_operation.107.desc
+	id = assassination_coup_operation.107
+	#title = assassination_coup_operation.107.name
+	#desc = assassination_coup_operation.107.desc
 	hide_window = yes
 	#picture = GFX_evt_space_station
 	#show_sound = event_default
@@ -169,14 +169,14 @@ country_event = {
 	immediate = {
 		root = {
 			country_event = {
-				id = assassination_operation.200
+				id = assassination_coup_operation.200
 			}
 		}
 	}
 }
 
 country_event = {
-	id = assassination_operation.200
+	id = assassination_coup_operation.200
 	hide_window = yes
 	is_triggered_only = yes
 	trigger = {
@@ -184,7 +184,7 @@ country_event = {
 	immediate = {
 		random_owned_planet = {
 			planet_event = {
-				id = assassination.001
+				id = assassination_coup.001
 			}
 		}
 	}
@@ -192,9 +192,9 @@ country_event = {
 
 #TEST event
 country_event = {
-	id = assassination_operation.00
-	title = assassination_operation.00.name
-	desc = assassination_operation.00.desc
+	id = assassination_coup_operation.00
+	title = assassination_coup_operation.00.name
+	desc = assassination_coup_operation.00.desc
 	picture = GFX_evt_space_station
 	show_sound = event_default
 	is_triggered_only = yes

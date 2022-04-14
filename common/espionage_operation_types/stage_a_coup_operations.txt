@@ -1,16 +1,16 @@
-@diff_stage_a_coup = 10
-@energy_cost = 8000
-@alloy_cost = 3000
-@energy_cost_per_cycle = 60
-@alloy_cost_per_cycle = 30
-@spy_power_cost = 80
-# @diff_stage_a_coup = 0
-# @energy_cost = 0
-# @alloy_cost = 0
-# @energy_cost_per_cycle = 0
-# @alloy_cost_per_cycle = 0
-# @spy_power_cost = 0
-mmstage_a_coup = {
+# @diff_stage_a_coup = 10
+# @energy_cost = 8000
+# @alloy_cost = 3000
+# @energy_cost_per_cycle = 60
+# @alloy_cost_per_cycle = 30
+# @spy_power_cost = 80
+@diff_stage_a_coup = 0
+@energy_cost = 0
+@alloy_cost = 0
+@energy_cost_per_cycle = 0
+@alloy_cost_per_cycle = 0
+@spy_power_cost = 0
+stage_a_coup = {
 	target = none
 	categories = {
 		op_cat_provocation
@@ -18,7 +18,7 @@ mmstage_a_coup = {
 	}
 	picture = GFX_evt_spymaster
 	desc = stage_a_coup_desc
-	stages = 5
+	stages = 1
 	resources = {
 		category = operations
 		cost = {
@@ -49,30 +49,30 @@ mmstage_a_coup = {
 			is_gestalt = no
 		}
 	}
-	stage = {
-		#1
-		difficulty = @diff_stage_a_coup
-		icon = GFX_espionage_chapter_icon_document
-		event = stage_a_coup_operation.100
-	}
-	stage = {
-		#2
-		difficulty = @diff_stage_a_coup
-		icon = GFX_espionage_chapter_icon_document
-		event = stage_a_coup_operation.101
-	}
-	stage = {
-		#3
-		difficulty = @diff_stage_a_coup
-		icon = GFX_espionage_chapter_icon_document
-		event = stage_a_coup_operation.102
-	}
-	stage = {
-		#4
-		difficulty = @diff_stage_a_coup
-		icon = GFX_espionage_chapter_icon_document
-		event = stage_a_coup_operation.103
-	}
+	# stage = {
+	# 	#1
+	# 	difficulty = @diff_stage_a_coup
+	# 	icon = GFX_espionage_chapter_icon_document
+	# 	event = stage_a_coup_operation.100
+	# }
+	# stage = {
+	# 	#2
+	# 	difficulty = @diff_stage_a_coup
+	# 	icon = GFX_espionage_chapter_icon_document
+	# 	event = stage_a_coup_operation.101
+	# }
+	# stage = {
+	# 	#3
+	# 	difficulty = @diff_stage_a_coup
+	# 	icon = GFX_espionage_chapter_icon_document
+	# 	event = stage_a_coup_operation.102
+	# }
+	# stage = {
+	# 	#4
+	# 	difficulty = @diff_stage_a_coup
+	# 	icon = GFX_espionage_chapter_icon_document
+	# 	event = stage_a_coup_operation.103
+	# }
 	stage = {
 		#5
 		difficulty = @diff_stage_a_coup

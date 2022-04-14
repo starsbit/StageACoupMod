@@ -1,12 +1,12 @@
-@diff_assassination = 6
-assassination = {
+@diff_assassination_coup = 6
+assassination_coup = {
 	target = none
 	categories = {
 		op_cat_provocation
 		op_cat_military
 	}
 	picture = GFX_evt_spymaster
-	desc = assassination_operation
+	desc = assassination_coup_operation
 	stages = 5
 	resources = {
 		category = operations
@@ -28,33 +28,33 @@ assassination = {
 	}
 	stage = {
 		#1
-		difficulty = @diff_assassination
+		difficulty = @diff_assassination_coup
 		icon = GFX_espionage_chapter_icon_document
-		event = assassination_operation.100
+		event = assassination_coup_operation.100
 	}
 	stage = {
 		#2
-		difficulty = @diff_assassination
+		difficulty = @diff_assassination_coup
 		icon = GFX_espionage_chapter_icon_document
-		event = assassination_operation.101
+		event = assassination_coup_operation.101
 	}
 	stage = {
 		#3
-		difficulty = @diff_assassination
+		difficulty = @diff_assassination_coup
 		icon = GFX_espionage_chapter_icon_document
-		event = assassination_operation.102
+		event = assassination_coup_operation.102
 	}
 	stage = {
 		#4
-		difficulty = @diff_assassination
+		difficulty = @diff_assassination_coup
 		icon = GFX_espionage_chapter_icon_document
-		event = assassination_operation.103
+		event = assassination_coup_operation.103
 	}
 	stage = {
 		#5
-		difficulty = @diff_assassination
+		difficulty = @diff_assassination_coup
 		icon = GFX_espionage_chapter_icon_document
-		event = assassination_operation.104
+		event = assassination_coup_operation.104
 	}
 	on_roll_failed = {
 		standard_espionage_operation_on_roll_failed = {

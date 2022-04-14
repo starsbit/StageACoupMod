@@ -1,8 +1,8 @@
-namespace = assassination
+namespace = assassination_coup
 planet_event = {
-	id = assassination.001
-	title = assassination.001.name
-	desc = assassination.001.desc
+	id = assassination_coup.001
+	title = assassination_coup.001.name
+	desc = assassination_coup.001.desc
 	picture = GFX_evt_arguing_senate
 	show_sound = event_yellow_alert
 	is_triggered_only = yes
