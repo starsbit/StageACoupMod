@@ -1,0 +1,20 @@
+Compatible with version 3.*
+
+Use the two new espionage option to stage a coup in the target country or assassinate the tagets ruler. The Rebellion has the same ethic and authority as you unless you are gestalt or corporate in that case it is random. The operation can only be executed once on a target!
+
+[h1]FAQ[/h1]
+
+[b]Does the AI use those operations too?[/b]
+Yes they can use those operations. This might rarely happen because of the nature of the AI. They often do not have high enough intel to start a operation or the economy to fund them. 
+
+[b]Is it compatible with other mods?[/b]
+It should be compatible with every mod since it does not touch any game files. If you find any incompatiblity please report them in the comments.
+
+[b]Does it work with existing saves?[/b]
+Yes it works with existing saves.
+
+[b]Does load order matter?[/b]
+Load order does not matter since this mod does not affect base game files.
+
+[b]Is it compatible with other ship class mods?[/b]
+Yes, rebellions also use custom ship classes from other mods when installed.
