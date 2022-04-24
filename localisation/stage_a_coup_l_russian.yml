@@ -57,6 +57,8 @@
   assassination_coup_operation.102.desc: "Operatives are gathering intel on the target and plan out the assassination."
   assassination_coup_operation.103.name: "Setting up the hit"
   assassination_coup_operation.103.desc: "Enough intel about the target has been gathered and operatives are preparing the assassination."
+  assassination_coup_operation.104.name: "Executing the hit"
+  assassination_coup_operation.104.desc: "The assassination is being carried out."
   assassination_coup_operation.105.name: "assassination failed"
   assassination_coup_operation.105.desc: "We left traces behind leading to our operatives the operation has to be stopped."
   assassination_coup_operation.106.name: "Target assassinated"
