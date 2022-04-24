@@ -6,6 +6,7 @@ planet_event = {
 	picture = GFX_evt_arguing_senate
 	show_sound = event_yellow_alert
 	is_triggered_only = yes
+	hide_window = yes
 	pre_triggers = {
 		has_owner = yes
 	}
