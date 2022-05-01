@@ -218,7 +218,7 @@ country_event = {
 		}
 		# baseline resource stockpile
 		add_resource = {
-			energy = 10000
+			energy = 20000
 			minerals = 10000
 			influence = 500
 			alloys = 10000
@@ -508,7 +508,13 @@ country_event = {
 			attacker_war_goal = wg_stage_a_coup
 		}
 		# create fleets
-		create_fleet_from_naval_cap = 0.2
+		create_fleet_from_naval_cap = 0.4
+		random_owned_planet = {
+			last_created_fleet = {
+				set_location = prev
+			}
+		}
+		create_fleet_from_naval_cap = 0.3
 		random_owned_planet = {
 			last_created_fleet = {
 				set_location = prev

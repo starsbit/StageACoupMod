@@ -56,25 +56,6 @@ espionage_operation_event = {
 	}
 }
 
-# Third Event
-espionage_operation_event = {
-	id = assassination_coup_operation.102
-	title = assassination_coup_operation.102.name
-	espionage_operation = yes
-	desc = assassination_coup_operation.102.desc
-	picture = GFX_evt_space_station
-	show_sound = event_default
-	is_triggered_only = yes
-	immediate = {
-		set_espionage_operation_progress_locked = yes
-	}
-	option = {
-		#continue
-		name = ACKNOWLEDGED
-		set_espionage_operation_progress_locked = no
-	}
-}
-
 # fourth Event
 espionage_operation_event = {
 	id = assassination_coup_operation.103
