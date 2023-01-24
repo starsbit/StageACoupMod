@@ -146,9 +146,11 @@ planet_event = {
 			if = {
 				limit = {
 					event_target:rebellion_host = {
-						is_gestalt = no
-						NOT = {
-							has_authority = auth_corporate
+						AND = {
+							is_gestalt = no
+							NOT = {
+								has_authority = auth_corporate
+							}
 						}
 					}
 				}
