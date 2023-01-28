@@ -22,3 +22,7 @@ Load order does not matter since this mod does not affect base game files.
 Yes, rebellions also use custom ship classes from other mods when installed.
 
 [i]Source code[/i]: https://github.com/starsbit/StageACoupMod
+
+Localizations:
+
+Chinese: [url=https://steamcommunity.com/profiles/76561198348710291]MyresMkG[/url]
