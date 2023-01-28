@@ -25,4 +25,6 @@ Yes, rebellions also use custom ship classes from other mods when installed.
 
 Localizations:
 
+English: [url=https://steamcommunity.com/profiles/76561198162091272]stars[/url]
+German: [url=https://steamcommunity.com/profiles/76561198162091272]stars[/url]
 Chinese: [url=https://steamcommunity.com/profiles/76561198348710291]MyresMkG[/url]
