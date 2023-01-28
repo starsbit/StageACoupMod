@@ -1,6 +1,5 @@
 ﻿l_simp_chinese:
-  #ops
-  stage_a_coup: "Stage a coup"
+  stage_a_coup: "Stage a Coup"
   stage_a_coup_desc: "We've identified key leaders within the empire who, with the right support and resources, could be persuaded to rise up against the government."
   stage_a_coup_on_success: "$IF_SUCCESSFUL|E$\n Will cause a rebellion inside §H[root.target.GetName]§!."
   #ops events
@@ -25,7 +24,7 @@
   stage_a_coup_operation.106.name: "The Coup is Underway"
   stage_a_coup_operation.106.desc: "Our efforts have paid off. The rebellion is in motion and the government is under siege."
 
-  stage_a_coup.001.name: "Rebels stage a coup"
+  stage_a_coup.001.name: "Rebels Stage a Coup"
   stage_a_coup.001.desc: "Rebels have mobilized in multiple parts of §H[root.target.GetName]§!. They are attempting to overthrow the government and seize control."
   stage_a_coup.201.a: "Rebels storm the capital"
   stage_a_coup.201.a.tooltip: "This could change everything."
@@ -40,7 +39,7 @@
 
   NAME_stage_a_coup_war: "[This.MainDefender.GetAdj] Civil War"
 
-  assassination_coup: "Carry out ruler assassination"
+  assassination_coup: "Carry Out Ruler Assassination"
   assassination_coup_desc: "We've identified a key leader in the target empire and have devised a plan to eliminate them. Our operatives are ready to carry out the hit."
   assassination_coup_on_success: "$IF_SUCCESSFUL|E$\n Will kill the current ruler of §H[root.target.GetName]§!"
   assassination_coup_operation: "Ordering our agents to carry out the assassination of the ruler."
