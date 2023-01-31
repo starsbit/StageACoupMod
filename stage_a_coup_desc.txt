@@ -28,3 +28,4 @@ Localizations:
 English: [url=https://steamcommunity.com/profiles/76561198162091272]stars[/url]
 German: [url=https://steamcommunity.com/profiles/76561198162091272]stars[/url]
 Chinese: [url=https://steamcommunity.com/profiles/76561198348710291]MyresMkG[/url]
+Russian: [url=https://steamcommunity.com/profiles/76561198303736369]Shadow Fox[/url]
